@@ -52,7 +52,6 @@ func testFilePath(t *testing.T, filename string) string {
 }
 
 func TestGetAeadWithEnvelopeAead(t *testing.T) {
-	t.Skip("TODO(b/532941360): Re-enable once GCP KMS credentials are updated")
 	ctx := context.Background()
 	gcpClient, err := gcpkms.NewClientWithOptions(ctx, keyURI, option.WithCredentialsFile(testFilePath(t, credFile)))
 	if err != nil {
@@ -90,7 +89,6 @@ func TestGetAeadWithEnvelopeAead(t *testing.T) {
 }
 
 func TestAeadWithTransportGRPC(t *testing.T) {
-	t.Skip("TODO(b/532941360): Re-enable once GCP KMS credentials are updated")
 	ctx := context.Background()
 
 	opts := []gcpkms.Option{
@@ -141,7 +139,6 @@ func TestAeadWithTransportGRPC(t *testing.T) {
 }
 
 func TestAeadCrossClient(t *testing.T) {
-	t.Skip("TODO(b/532941360): Re-enable once GCP KMS credentials are updated")
 	ctx := context.Background()
 
 	httpOpts := []gcpkms.Option{
@@ -218,7 +215,6 @@ func TestAeadCrossClient(t *testing.T) {
 }
 
 func TestAead(t *testing.T) {
-	t.Skip("TODO(b/532941360): Re-enable once GCP KMS credentials are updated")
 	ctx := context.Background()
 	gcpClient, err := gcpkms.NewClientWithOptions(ctx, keyURI, option.WithCredentialsFile(testFilePath(t, credFile)))
 	if err != nil {
@@ -264,7 +260,6 @@ func TestAead(t *testing.T) {
 }
 
 func TestAeadWithContext(t *testing.T) {
-	t.Skip("TODO(b/532941360): Re-enable once GCP KMS credentials are updated")
 	ctx := context.Background()
 	aeadWithContext, err := gcpkms.GetAEADWithContext(ctx, keyURI, gcpkms.WithGoogleAPIClientOptions(option.WithCredentialsFile(testFilePath(t, credFile))))
 	if err != nil {
