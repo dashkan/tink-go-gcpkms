@@ -28,7 +28,6 @@ import (
 	"google.golang.org/grpc/test/bufconn"
 
 	// Placeholder for internal proto import.
-	kmspbgrpc "google.golang.org/genproto/googleapis/cloud/kms/v1"
 	kmspb "cloud.google.com/go/kms/apiv1/kmspb"
 	wrappb "google.golang.org/protobuf/types/known/wrapperspb"
 )
@@ -37,7 +36,7 @@ import (
 //
 // Test methods can be added in primitive specific test files.
 type mockKMS struct {
-	kmspbgrpc.UnimplementedKeyManagementServiceServer
+	kmspb.UnimplementedKeyManagementServiceServer
 	getPublicKeyFormatRequests []kmspb.PublicKey_PublicKeyFormat
 	lastAsymmetricSignRequest  *kmspb.AsymmetricSignRequest
 }
@@ -49,7 +48,7 @@ func setupMockKMSClient(ctx context.Context, t *testing.T, mockServer *mockKMS) 
 	lis := bufconn.Listen(bufSize)
 	s := grpc.NewServer()
 
-	kmspbgrpc.RegisterKeyManagementServiceServer(s, mockServer)
+	kmspb.RegisterKeyManagementServiceServer(s, mockServer)
 
 	go func() {
 		if err := s.Serve(lis); err != nil {
