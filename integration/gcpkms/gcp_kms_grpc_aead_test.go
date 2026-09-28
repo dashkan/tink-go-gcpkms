@@ -21,7 +21,7 @@ import (
 	"net"
 	"testing"
 
-	kmspbgrpc "google.golang.org/genproto/googleapis/cloud/kms/v1"
+	// Placeholder for internal grpc import.
 	kmspb "cloud.google.com/go/kms/apiv1/kmspb"
 	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	"cloud.google.com/go/kms/apiv1"
@@ -33,7 +33,7 @@ import (
 
 // mockKMSService is a mock implementation of the KeyManagementServiceServer.
 type mockKMSService struct {
-	kmspbgrpc.UnimplementedKeyManagementServiceServer
+	kmspb.UnimplementedKeyManagementServiceServer
 	encryptResponse *kmspb.EncryptResponse
 	decryptResponse *kmspb.DecryptResponse
 }
@@ -60,7 +60,7 @@ func initializeGRPCClientWithResponse(t *testing.T, encryptResponse *kmspb.Encry
 		decryptResponse: decryptResponse,
 	}
 
-	kmspbgrpc.RegisterKeyManagementServiceServer(s, mockService)
+	kmspb.RegisterKeyManagementServiceServer(s, mockService)
 
 	go func() {
 		if err := s.Serve(lis); err != nil {
