@@ -21,6 +21,7 @@ import (
 	"net"
 	"testing"
 
+	// Placeholder for internal grpc import.
 	kmspb "cloud.google.com/go/kms/apiv1/kmspb"
 	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	"cloud.google.com/go/kms/apiv1"
