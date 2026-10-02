@@ -28,6 +28,7 @@ import (
 	"google.golang.org/grpc/test/bufconn"
 
 	// Placeholder for internal proto import.
+	// Placeholder for internal grpc import.
 	kmspb "cloud.google.com/go/kms/apiv1/kmspb"
 	wrappb "google.golang.org/protobuf/types/known/wrapperspb"
 )
